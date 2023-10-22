@@ -4,11 +4,9 @@ Service to calculate aggregate and percentile of a user's health
 
 import datetime
 
-from exception.exception import ValidationError, WrongChoice
+from exception.exception import WrongChoice
 from models.vital import VitalId
 from services.aggregation import AggregationService
-from services.user import UserService
-from services.vital import VitalService
 
 
 class AggregateView:
