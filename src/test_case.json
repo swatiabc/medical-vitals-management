@@ -72,5 +72,14 @@
             "vital_id": "HEART_RATE",
             "timestamp": "2023-10-03 14:30:00",
             "value": 89
-        }
+        },
+          {
+            "command": "get_user",
+            "username": "Alice"
+        },
+  {
+  "command": "get_vitals",
+  "username": "Alice",
+  "period": ["2020-10-04 14:30:00", "2024-10-05 14:30:00"]
+}
 ]

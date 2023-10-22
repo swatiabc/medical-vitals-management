@@ -24,8 +24,15 @@ class AggregateView:
 
     def aggregate(self, command):
         """
-        :param command:
-        :return: average of values for a user's vital_id between a given timeframe
+        :param command: {
+            "command": "aggregate",
+            "username": "Alice",
+            "vital_ids": ["HEART_RATE", "TEMPERATURE"],
+            "start_timestamp": "2023-10-01 00:00:00",
+            "end_timestamp": "2023-10-31 23:59:59"
+        }
+        :return:
+        average of values for a user's vital_id between a given timeframe
         """
         username = command.get("username")
         vital_ids = command.get("vital_ids")
@@ -61,7 +68,13 @@ class AggregateView:
     def population_insight(self, command):
         """
 
-        :param command:
+        :param command: {
+            "command": "population_insight",
+            "username": "Alice",
+            "vital_id": "HEART_RATE",
+            "start_timestamp": "2023-10-01 00:00:00",
+            "end_timestamp": "2023-10-31 23:59:59"
+        }
         :return: get percentile of a user for a vital id between a given timeframe
         """
         username = command.get("username")

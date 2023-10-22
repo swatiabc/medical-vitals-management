@@ -37,7 +37,7 @@ class VitalService:
         """
         if not self.user_repo.retrieve(user_name):
             raise ObjectNotFound(User, user_name=user_name)
-        try :
+        try:
             vital_type = VitalId[vital_id]
         except KeyError:
             raise WrongChoice(VitalId, vital_id=vital_id)

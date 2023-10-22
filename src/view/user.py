@@ -12,7 +12,10 @@ class UserView:
     def get_user(self, command: dict) -> dict:
         """
         retrieves user from a given username
-        :param command:
+        :param command:  {
+            "command": "get_user",
+            "username": "Alice"
+        }
         :return:
         """
         username = command.get("username")
@@ -22,7 +25,7 @@ class UserView:
             "data": {
                 "user_name": user.username,
                 "age": user.age,
-                "gender": user.gender.value,
+                "gender": user.gender,
                 "illness": user.illness,
             },
             "message": f"{username} fetched successfully",
@@ -31,7 +34,12 @@ class UserView:
     def create_user(self, command: dict) -> dict:
         """
         creates user from the information provided in the command
-        :param command:
+        :param command: {
+            "command": "create_user",
+            "username": "Alice",
+            "age": 25,
+            "gender": "Female"
+        }
         :return:
         """
         username = command.get("username")

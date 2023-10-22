@@ -68,7 +68,9 @@ class AggregationService:
         all_averages = []
         for user in users:
             try:
-                value = self.average_vitals_value_of_user(user, vital_id, start_ts, end_ts)
+                value = self.average_vitals_value_of_user(
+                    user, vital_id, start_ts, end_ts
+                )
             except ObjectNotFound:
                 continue
             all_averages.append(value)

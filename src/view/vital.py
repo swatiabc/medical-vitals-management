@@ -18,7 +18,13 @@ class VitalView:
     def insert_vital(self, command: dict) -> dict:
         """
         creates a new vital for a user, using the information in the command
-        :param command:
+        :param command: {
+            "command": "insert_vital",
+            "username": "Alice",
+            "vital_id": "HEART_RATE",
+            "value": 75,
+            "timestamp": "2023-10-01 12:30:00"
+        }
         :return:
         """
         username = command.get("username")
@@ -41,9 +47,13 @@ class VitalView:
 
     def get_vitals(self, command: dict) -> dict:
         """
-        retrieves a particular vital usinf the information provided in the command
-        :param command:
-        :return:
+                retrieves a particular vital usinf the information provided in the command
+                :param command: {
+          "command": "get_vitals",
+          "username": "Alice",
+          "period": ["2020-10-04", "2024-10-05"]
+        }
+                :return:
         """
         username = command.get("username")
         period = command.get("period")
@@ -70,6 +80,17 @@ class VitalView:
         return {"status": "success", "data": data_list}
 
     def update_vital(self, command: dict) -> dict:
+        """
+
+        :param command: {
+            "command": "update_vital",
+            "username": "Alice",
+            "vital_id": "HEART_RATE",
+            "timestamp": "2023-10-03 14:30:00",
+            "value": 89
+        }
+        :return:
+        """
         username = command.get("username")
         vital_id = command.get("vital_id")
         timestamp = datetime.datetime.strptime(
