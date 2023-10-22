@@ -57,9 +57,7 @@ class TestAggregateView(unittest.TestCase):
         self.vital_service.create_vital(
             user.username, vital_id, vital2.value, vital2.timestamp
         )
-        view = AggregateView(
-            self.user_service, self.vital_service, self.aggregation_service
-        )
+        view = AggregateView(self.aggregation_service)
         with self.assertRaises(ValidationError) as context:
             response = view.aggregate(command)
         self.assertEqual(
@@ -104,9 +102,7 @@ class TestAggregateView(unittest.TestCase):
             user.username, vital_id, vital2.value, vital2.timestamp
         )
 
-        view = AggregateView(
-            self.user_service, self.vital_service, self.aggregation_service
-        )
+        view = AggregateView(self.aggregation_service)
         response = view.aggregate(command)
         self.assertEqual(
             response.get("data").get("aggregates"),
@@ -149,9 +145,7 @@ class TestAggregateView(unittest.TestCase):
             user.username, vital_id, vital2.value, vital2.timestamp
         )
 
-        view = AggregateView(
-            self.user_service, self.vital_service, self.aggregation_service
-        )
+        view = AggregateView(self.aggregation_service)
         with self.assertRaises(ValidationError) as context:
             response = view.population_insight(command)
         self.assertEqual(
@@ -196,9 +190,7 @@ class TestAggregateView(unittest.TestCase):
             user.username, vital_id, vital2.value, vital2.timestamp
         )
 
-        view = AggregateView(
-            self.user_service, self.vital_service, self.aggregation_service
-        )
+        view = AggregateView(self.aggregation_service)
         response = view.population_insight(command)
         self.assertEqual(
             response.get("data").get("insight"),
@@ -245,9 +237,7 @@ class TestAggregateView(unittest.TestCase):
             user2.username, vital_id, vital2.value, vital2.timestamp
         )
 
-        view = AggregateView(
-            self.user_service, self.vital_service, self.aggregation_service
-        )
+        view = AggregateView(self.aggregation_service)
         response = view.population_insight(command)
         self.assertEqual(
             response.get("data").get("insight"),

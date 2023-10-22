@@ -33,7 +33,7 @@ if __name__ == "__main__":
     vital_service = VitalService(vital_repo, user_repo)
     aggregate_service = AggregationService(user_service, vital_service)
     user_view = UserView(user_service)
-    aggregate_view = AggregateView(user_service, vital_service, aggregate_service)
+    aggregate_view = AggregateView(aggregate_service)
     vital_view = VitalView(user_service, vital_service)
 
     for data in data_list:

@@ -14,12 +14,8 @@ from services.vital import VitalService
 class AggregateView:
     def __init__(
         self,
-        user_service: UserService,
-        vital_service: VitalService,
         aggregate_service: AggregationService,
     ):
-        self.user_service = user_service
-        self.vital_service = vital_service
         self.aggregate_service = aggregate_service
 
     def aggregate(self, command):
